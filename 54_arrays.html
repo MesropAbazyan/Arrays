@@ -1,0 +1,109 @@
+<a href="https://javascript.info/array" style="font-size: 100px;">5.4 Arrays</a>
+
+<script>
+
+// 1. done
+let fruits = ['Apple', 'Pear', 'Orange'];
+let shoppingCart = fruits;
+shoppingCart.push('Banana');
+
+console.log(fruits.length);           // 4
+// That's because arrays are objects.
+// So both shoppingCart and fruits are the references to the same array.
+console.log('______________________________');
+
+
+
+
+// 2. done
+let styles = ['Jazz', 'Blues'];
+console.log(styles);                            // 'Jazz', 'Blues'
+styles.push('Rock-n-Roll');
+console.log(styles);                            // 'Jazz', 'Blues', 'Rock-n-Roll'
+styles[(styles.length - 1) / 2] = 'Classics';
+console.log(styles);                            // 'Jazz', 'Classics', 'Rock-n-Roll'
+console.log(styles.shift());                    // Jazz
+console.log(styles);                            // 'Classics', 'Rock-n-Roll'
+styles.unshift('Rap', 'Reggea');
+console.log(styles);                            // 'Rap', 'Reggea', 'Classics', 'Rock-n-Roll'
+console.log('______________________________');
+
+
+
+
+// 3. done
+let arr = ['a', 'b'];
+
+arr.push(function() {
+    console.log( this );
+});
+
+arr[2]();           // ['a', 'b', f]
+// To access the object, a method can use the 'this' keyword.
+// The value of 'this' is the object before dot, the one used to call the method.
+console.log('______________________________');
+
+
+
+
+// 4. done
+function sumInput() {
+    let numbers = [];
+
+    while (true) {
+        let value = prompt('Input number', 0);
+
+        if (isNaN(value) || value === '' || value === null) break;
+
+        numbers.push(+value);
+    }
+
+    let sum = 0;
+
+    for (let number of numbers) {
+        sum += number;
+    }
+
+    return sum;
+}
+
+console.log(sumInput());
+console.log('______________________________');
+
+
+
+
+// 5. incomplete
+// const arr5 = [1, -2, 3, 4, -9, 6];
+// const arr5 = [-2, -3, -2, 1, -2, 3, 4, -9, 6, -7, -2, -3];
+
+// function getMaxSubSum(arr5) {
+//     for (let i = 0; i < arr5.length; i++) {
+//         while (arr5[0] < 0) {
+//             arr5.shift();
+//         }
+
+//         while (arr5[arr5.length - 1] < 0) {
+//             arr5.pop();
+//         }
+//     }
+
+//     let sums = [];
+//     let sum = arr5[0];
+
+//     for (let i = 1; i < arr5.length; i++) {
+//         if (arr5[i] >= 0) {
+//             sum += arr5[i];
+//         } else {
+//             sums.push(sum);
+//         }
+//     }
+
+//     return arr5;
+// }
+
+// console.log(arr5);
+// console.log(getMaxSubSum(arr5));
+
+
+</script>
